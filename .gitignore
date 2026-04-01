@@ -7,8 +7,15 @@ test/.pytest_cache/
 # Файлы IDE
 .idea/
 
+
 # Виртуальное окружение Python
 .venv/
+
+# папка с вебинаром
+POM (=PageObjModel_from_webinar=)/
+
+# папка с настройками VS Code 
+.vscode/
 
 # Сам файл .gitignore не игнорируем!
 !.gitignore

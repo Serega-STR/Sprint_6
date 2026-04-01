@@ -1,7 +1,7 @@
 import pytest
 
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver import FirefoxOptions
 from selenium.webdriver.support.wait import WebDriverWait
 
 from urls import *
@@ -10,25 +10,31 @@ from urls import *
 
 @pytest.fixture(scope="function")
 def driver():
-    options = Options()
+    options = FirefoxOptions()
     options.add_argument("--window-size=1600,900")
-    options.add_experimental_option("prefs", {
-            "profile.password_manager_leak_detection": False
-        })
+    
     #options.add_argument("--headless") # запуск без явного отображения браузера на экране
 
-    # создаем драйвер для браузера с вышеуказанными опциями
-    driver = webdriver.Firefox(options=options)
-    
-    # открываем сайт с помощью драйвера
-    driver.get(main_page)
+    try:
+        # создаем драйвер для браузера с вышеуказанными опциями
+        driver = webdriver.Firefox(options=options)
 
-    # приостанавливаем этот код, передаем драйвер в тест
-    yield driver
+        # Открываем главную страницу
+        driver.get(main_page_url)
 
-    # после выполнения теста закрываем браузер, останавливаем драйвер
-    driver.quit()
+        # Передаём драйвер в тест
+        yield driver
 
+    except Exception as e:
+        print(f"Ошибка при создании драйвера: {e}")
+        raise
 
-
-
+    finally:
+        # Гарантированно закрываем браузер даже при ошибках в тесте
+        try:
+            driver.quit()
+            print("Браузер успешно закрыт")
+        except WebDriverException as e:
+            print(f"Ошибка при закрытии драйвера: {e}")
+        except Exception as e:
+            print(f"Неожиданная ошибка при закрытии: {e}")
