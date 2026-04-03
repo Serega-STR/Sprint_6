@@ -38,7 +38,7 @@ class TestOrder():
 
         # жмем кнопку "заказать"
         main_page.click_button_header_order(locator_order)
-
+        
         # проверка что страница заказа самоката открылась
         order.check_order_page()
 
@@ -72,4 +72,4 @@ class TestOrder():
         ### Assert ###
 
         # ждем загрузки попапа - проверка успешного заказа самоката
-        order.check_popup_succesfully_order()
+        assert order.check_popup_succesfully_order()

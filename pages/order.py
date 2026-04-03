@@ -11,7 +11,7 @@ from urls import *
 
 class Order(BasePage):
     
-    @allure.step('проверка что страница заказа самоката открылась')
+    @allure.step('проверка, что страница заказа самоката открылась')
     def check_order_page(self):
         self.wait_for_load_section_who_scooter_for()
         current_url = self.driver.current_url
@@ -102,6 +102,6 @@ class Order(BasePage):
 
     @allure.step('ждем загрузки попапа - проверка успешного заказа самоката')
     def check_popup_succesfully_order(self):
-        assert self.wait_for_element_located(OPL.POPUP_ORDER_PLACED)
+        return self.wait_for_element_located(OPL.POPUP_ORDER_PLACED)
         
 

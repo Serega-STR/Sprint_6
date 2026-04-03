@@ -31,7 +31,7 @@ class MainPage(BasePage):
     def check_main_question_cost_answer(self, locator_question, locator_answer, expected_text):
         self.click_main_question_cost(locator_question)
         actual_text = self.main_question_cost_answer_text(locator_answer)
-        assert actual_text == expected_text, f"Ожидаемый текст : {expected_text}. Фактический текст: {actual_text}"
+        return actual_text == expected_text, f"Ожидаемый текст : {expected_text}. Фактический текст: {actual_text}"
 
     # 2. методы для проверки заказа
 

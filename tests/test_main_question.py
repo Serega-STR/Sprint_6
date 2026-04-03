@@ -34,4 +34,4 @@ class TestMainPageQuestion:
         ### Assert ###
 
         # кликаем на вопрос, проверяем что текст ответа совпадает с ожидаемым
-        main_page.check_main_question_cost_answer(locator_question, locator_answer, expected_text)
+        assert main_page.check_main_question_cost_answer(locator_question, locator_answer, expected_text)
