@@ -1,0 +1,25 @@
+# Кэши Python
+__pycache__/
+.pytest_cache/
+test/__pycache__/
+test/.pytest_cache/
+
+# Файлы IDE
+.idea/
+
+# Файлы логов и временные файлы
+*.log
+*.tmp
+*.temp
+
+# Виртуальное окружение Python
+.venv/
+
+# папка с вебинаром
+POM (=PageObjModel_from_webinar=)/
+
+# папка с настройками VS Code 
+.vscode/
+
+# Сам файл .gitignore не игнорируем!
+!.gitignore
