@@ -1,13 +1,8 @@
 import pytest
 import allure
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
-
 from pages.main_page import MainPage
-from pages.order import Order
+from pages.order_page import OrderPage
 from data import *
 from urls import *
 
@@ -26,7 +21,10 @@ class TestOrder():
         main_page = MainPage(driver)
 
         # создаем объект страницы заказа
-        order = Order(driver)
+        order_page = OrderPage(driver)
+
+        # принимаем куки
+        main_page.click_accept_cookies()
         
         # ждем загрузки раздела "заказать"     
         main_page.wait_for_load_button_header_order(locator_order)
@@ -40,36 +38,36 @@ class TestOrder():
         main_page.click_button_header_order(locator_order)
         
         # проверка что страница заказа самоката открылась
-        order.check_order_page()
+        order_page.check_order_page()
 
         # заполнение всех полей раздела "для кого самокат"
-        order.fill_all_fields_section_who_scooter_for(name, surname, address, locator_station, phone)
+        order_page.fill_all_fields_section_who_scooter_for(name, surname, address, locator_station, phone)
 
         # жмем кнопку "Далее"
-        order.click_next_button_to_rental_page()
+        order_page.click_next_button_to_rental_page()
 
         # ждем загрузки раздела "Про аренду"
-        order.wait_for_load_rental_section()
+        order_page.wait_for_load_rental_section()
 
         # заполнение поля "когда привезти самокат"
-        order.fill_field_when_bring_scooter()
+        order_page.fill_field_when_bring_scooter()
 
         # заполнение поля период аренды
-        order.fill_rental_period(locator_rental_period)
+        order_page.fill_rental_period(locator_rental_period)
 
         # заполнение поля цвет самоката
-        order.fill_color_scooter(locator_color)
+        order_page.fill_color_scooter(locator_color)
 
         # жмем кнопку "заказать" 
-        order.click_button_place_order()
+        order_page.click_button_place_order()
 
         # ждем загрузки попапа подтверждения заказа
-        order.wait_for_load_popup_to_place_order()
+        order_page.wait_for_load_popup_to_place_order()
 
         # жмем кнопку подтверждения заказа
-        order.click_button_popup_to_place_order_yes() 
+        order_page.click_button_popup_to_place_order_yes() 
 
         ### Assert ###
 
         # ждем загрузки попапа - проверка успешного заказа самоката
-        assert order.check_popup_succesfully_order()
+        assert order_page.check_popup_succesfully_order()

@@ -1,11 +1,6 @@
 import allure
 import pytest
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
-
 from pages.main_page import MainPage
 from urls import *
 from data import Data
@@ -22,6 +17,9 @@ class TestMainPageQuestion:
 
         # создаем объект  главной страницы
         main_page = MainPage(driver)
+
+        # принимаем куки
+        main_page.click_accept_cookies()
 
         # ждем загрузки раздела "вопросы о важном"     
         main_page.wait_for_located_main_question_accordion()

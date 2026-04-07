@@ -2,6 +2,9 @@ from selenium.webdriver.common.by import By
 
 
 class OrderPageLocators:
+    # принять куки 
+    BUTTON_ACCEPT_COOKIES = (By.ID, 'rcc-confirm-button')
+
     ### раздел ДЛЯ КОГО САМОКАТ 
     NAME_FIELD = (By.XPATH, '//input[@placeholder="* Имя"]') # поле имя
     SURNAME_FIELD = (By.XPATH, '//input[@placeholder="* Фамилия"]') # поле фамилия
@@ -9,8 +12,8 @@ class OrderPageLocators:
 
     # метро
     METRO_STATION_FIELD = (By.CLASS_NAME, 'select-search__value') # выпадающий список станция метро
-    STATION_ROCOSSOVSKIY = (By.XPATH, '//div[@class="select-search__select"]/ul[@class="select-search__options"]/li[1]') # выбрать станцию Бульвар Рокоссовского
-    STATION_LIHOBORY = (By.XPATH, '//div[@class="select-search__select"]/ul[@class="select-search__options"]/li[last()]')
+    STATION_ROCOSSOVSKIY = (By.XPATH, '//li[@data-value="1"]') # выбрать станцию Бульвар Рокоссовского
+    STATION_LIHOBORY = (By.XPATH, '//li[@data-value="237"]') # выбрать станцию Лихоборы
     
 
     PHONE_FIELD = (By.XPATH, '//input[@placeholder="* Телефон: на него позвонит курьер"]') # поле ТЕЛЕфон
@@ -18,7 +21,7 @@ class OrderPageLocators:
 
     ### раздел ПРО АРЕНДУ
     WHEN_BRING_SCOOTER_FIELD = (By.XPATH, '//input[@placeholder="* Когда привезти самокат"]') # поле Когда привезти самокат
-    DATE = (By.CSS_SELECTOR, '[aria-label*="5-е апреля 2026"]') # 5 апреля в поле Когда привезти самокат
+    DATE = (By.CSS_SELECTOR, '[aria-label*="3-е мая 2026"]') # 5 апреля в поле Когда привезти самокат
     RENTAL_PERIOD_FIELD = (By.CLASS_NAME, 'Dropdown-placeholder') # выпадающий список срок аренды
 
     # период вренды
@@ -35,6 +38,5 @@ class OrderPageLocators:
     BUTTON_YES = (By.XPATH, '//button[text()="Да"]') # кнопка Да
     POPUP_ORDER_PLACED = (By.XPATH, '//div[text()="Заказ оформлен"]') # заказ оформлен
 
-    """ @staticmethod
-    def card_number(card):
-        return By.XPATH, f'//*[@id="root"]/div/main/section[2]/ul/li[{card}]'  """
+    # логотип
+    SCOOTER_LOGO = (By.XPATH, '//a[@href="/"]')

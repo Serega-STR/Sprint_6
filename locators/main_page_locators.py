@@ -1,7 +1,9 @@
 from selenium.webdriver.common.by import By
 
-
 class MainPageLocators:
+    # принять куки 
+    BUTTON_ACCEPT_COOKIES = (By.ID, 'rcc-confirm-button')
+
     # РАЗДЕЛ ответы на вопросы - "Вопросы о важном" 
     MAIN_QUESTION_ACCORDION = (By.CLASS_NAME, 'accordion')
 
@@ -25,13 +27,10 @@ class MainPageLocators:
     MAIN_QUESTION_CANCEL_ORDER_ANSWER = (By.CSS_SELECTOR, '[id=accordion__panel-6] > p') #  ответ - отмена заказа
     MAIN_QUESTION_DELIVERY_BEYOND_MKAD_ANSWER = (By.CSS_SELECTOR, '[id=accordion__panel-7] > p') #  ответ - доставка за мкад
 
-    # методы для проверки заказа самоката
+    # локаторы для проверки заказа самоката
     BUTTON_HEADER_ORDER = (By.XPATH, '//div[contains(@class, "Header")]/button[text()="Заказать"]') #кнопка заказать вверху страницы
     BUTTON_HOME_ORDER = (By.XPATH, '//div[contains(@class, "Home")]/button[text()="Заказать"]') #кнопка заказать внизу страницы
-    
-    
-    
-    
-    """ @staticmethod
-    def card_number(card):
-        return By.XPATH, f'//*[@id="root"]/div/main/section[2]/ul/li[{card}]'  """
+
+    # логотипы
+    YANDEX_LOGO = (By.XPATH, '//a[@href="//yandex.ru"]')
+    SCOOTER_LOGO = (By.XPATH, '//a[@href="/"]')

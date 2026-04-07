@@ -1,24 +1,21 @@
 import allure
-from locators.main_page_locators import MainPageLocators
+
 from locators.order_page_locators import OrderPageLocators as OPL
-
 from pages.base_page import BasePage
-
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from urls import *
 
-class Order(BasePage):
+class OrderPage(BasePage):
     
     @allure.step('проверка, что страница заказа самоката открылась')
     def check_order_page(self):
         self.wait_for_load_section_who_scooter_for()
-        current_url = self.driver.current_url
-        assert current_url == order_page_url, f"Ожидаемый URL: {order_page_url}, фактический: {current_url}"
+        assert self.url == order_page_url, f"Ожидаемый URL: {order_page_url}, фактический: {self.url}"
+        
+    @allure.step("принимаем куки")
+    def click_accept_cookies(self):
+        self.click_on_element(OPL.BUTTON_ACCEPT_COOKIES)
 
-
-    # методы для проверки раздела "Для кого самокат"
+    # 1. методы для проверки раздела "Для кого самокат"
 
 
     @allure.step('ждем загрузки раздела "для кого самокат"')
@@ -61,7 +58,7 @@ class Order(BasePage):
 
     
 
-    # методы для проверки раздела "Про аренду"
+    # 2. методы для проверки раздела "Про аренду"
 
 
     @allure.step('ждем загрузки раздела "Про аренду"')
@@ -82,12 +79,12 @@ class Order(BasePage):
     def fill_color_scooter(self, color=OPL.CHECKBOX_COLOR_BLACK):
         self.click_on_element(color)
 
-    @allure.step('жмем кнопку \"заказать\"')
+    @allure.step('жмем кнопку "заказать"')
     def click_button_place_order(self):
         self.click_on_element(OPL.BUTTON_ORDER)
 
 
-    # методы попапов
+    # 3. методы попапов
 
 
     @allure.step('ждем загрузки попапа подтверждения заказа')
@@ -103,5 +100,11 @@ class Order(BasePage):
     @allure.step('ждем загрузки попапа - проверка успешного заказа самоката')
     def check_popup_succesfully_order(self):
         return self.wait_for_element_located(OPL.POPUP_ORDER_PLACED)
+
+    # 4. методы для проверки перехода по логотипу
+    
+    @allure.step('жмем логотип Самокат')
+    def click_button_scooter_logo(self):
+        self.click_on_element(OPL.SCOOTER_LOGO)
         
 

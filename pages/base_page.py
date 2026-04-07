@@ -55,3 +55,5 @@ class BasePage:
             return False
         except:
             return True
+
+    

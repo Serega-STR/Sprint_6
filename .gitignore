@@ -7,6 +7,10 @@ test/.pytest_cache/
 # Файлы IDE
 .idea/
 
+# Файлы логов и временные файлы
+*.log
+*.tmp
+*.temp
 
 # Виртуальное окружение Python
 .venv/
