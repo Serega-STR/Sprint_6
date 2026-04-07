@@ -28,7 +28,7 @@ def driver():
     options = FirefoxOptions()
     # options.add_argument("--window-size=1600,900") # запуск с размером окна 1600*900 (можно подставить свой размер)
     
-    #options.add_argument("--headless") # запуск без явного отображения браузера на экране
+    options.add_argument("--headless") # запуск без явного отображения браузера на экране
 
     try:
         # создаем драйвер для браузера с вышеуказанными опциями
@@ -59,7 +59,7 @@ def driver_order_page():
     options = FirefoxOptions()
     # options.add_argument("--window-size=1600,900") # запуск с размером окна 1600*900 (можно подставить свой размер)
     
-    #options.add_argument("--headless") # запуск без явного отображения браузера на экране
+    options.add_argument("--headless") # запуск без явного отображения браузера на экране
 
     try:
         # создаем драйвер для браузера с вышеуказанными опциями

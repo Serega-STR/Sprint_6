@@ -1,0 +1,15 @@
+[31m[1mERROR   [0m tests.conftest:conftest.py:44 Ошибка при создании драйвера: Message: Browsing context has been discarded
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
+NoSuchWindowError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:782:5
+assert.that/<@chrome://remote/content/shared/webdriver/Assert.sys.mjs:581:13
+assert.open@chrome://remote/content/shared/webdriver/Assert.sys.mjs:169:4
+GeckoDriver.prototype.navigateTo@chrome://remote/content/marionette/driver.sys.mjs:1187:39
+dispatch@chrome://remote/content/marionette/server.sys.mjs:318:40
+execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+onPacket/<@chrome://remote/content/marionette/server.sys.mjs:262:20
+onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+_onJSONObjectReady/<@chrome://remote/content/marionette/transport.sys.mjs:494:20
+
+[32mINFO    [0m tests.conftest:conftest.py:51 Браузер успешно закрыт

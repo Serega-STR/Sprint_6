@@ -1,0 +1,1 @@
+[32mINFO    [0m tests.conftest:conftest.py:82 Браузер успешно закрыт
